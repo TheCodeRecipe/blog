@@ -1,0 +1,122 @@
+---
+layout: post
+title:  "Setting up a blog with Jekyll"
+date:   2015-11-30 21:09:29
+categories: articles jekyll
+---
+I recently decided to start a blog. I had a few criteria:
+
+1. free hosting
+2. free custom domain support (to host it on
+  [blog.thecoderecipe.com](http://blog.thecoderecipe.com))
+3. good support for embedding code in posts
+4. simple yet modern design
+
+After experimenting with various "ordinary" blog platforms (e.g.
+[Wordpress](https://www.wordpress.com), [Blogger](https://www.blogger.com) and
+[Tumblr](https://www.tumblr.com)), I discovered [GitHub Pages](https://pages.github.com) and
+[Jekyll](https://www.jekyllrb.com).
+
+In short:
+
+- GitHub Pages lets you host static websites for free
+- Jekyll lets you generate a blog from static Markdown files
+- GitHub Pages supports Jekyll out of the box
+
+Here is what I had to do to set up this blog.
+
+## Set up instructions
+
+These instructions were last tested on 30 November 2015. Let me know if you encounter any problems.
+
+### Install Jekyll and create the blog structure
+
+The following assumes that you have Ruby 2.0 and RubyGems 2.0.14 installed.
+
+{% highlight sh %}
+# Install Jekyll and other gems that GitHub Pages uses.
+gem install github-pages
+
+jekyll --version
+# jekyll 2.4.0 (should match https://pages.github.com/versions/)
+
+# Ask Jekyll to create a new blog directory for us. Let's call it 'myblog'.
+jekyll new myblog
+
+# Create a Git repository
+cd myblog
+git init
+git add .
+git commit -m "Initial setup"
+
+# Important: use a branch named "gh-pages". Alternatively, you can use the
+# master branch if your Git repository is called 'yourusername.github.io'.
+git branch -m gh-pages
+
+# Create the 'myblog' repository on GitHub so that you can push to it.
+# See https://help.github.com/articles/creating-a-new-repository/.
+
+# Set up the origin.
+git remote add origin git@github.com:yourusername/myblog.git
+git push origin gh-pages
+
+{% endhighlight %}
+
+### Test it out
+
+You should now be able to access the blog at https://yourusername.github.io/myblog/. You'll notice
+that it looks terrible: the CSS isn't loading!
+
+That's because you need to customize `_config.yml`, and more specifically the `baseurl` field. If
+you intend to leave the blog at that address, [you should fix it](https://github.com/TheCodeRecipe/blog/commit/3af90c98a8dfc1725ed7c22d8af2cc73446f194d).
+However, if you are going to use a custom domain, you can leave it as is—it will fix itself soon.
+
+### Add CNAME and configure your domain
+
+*Ignore this if you don't want to use a custom domain such as http://blog.yourdomain.com.*
+
+In the following, we assume that you want to use http://blog.yourdomain.com to host your blog. Note
+that the subdomain you use does not need to match the name of your Git repository (it doesn't have
+to be called "myblog").
+
+{% highlight sh %}
+
+# In the myblog directory, add a CNAME directory with your intended domain.
+echo "http://blog.yourdomain.com" >> CNAME
+git add CNAME
+git commit -m "Use a custom domain"
+git push origin gh-pages
+
+{% endhighlight %}
+
+In your domain provider's DNS zone file, add a CNAME alias from your subdomain (e.g. "blog") to "yourusername.github.io".
+
+Finally, try loading http://blog.yourdomain.com. You may need to wait for DNS changes to propagate
+(up to an hour). If you see CSS-related errors, make sure that your `baseurl` config is empty.
+
+### Update your config
+
+Now that your blog is live, you can customize it as you wish. You will want to edit the following
+files:
+
+- `_config.yml` (e.g. blog title and summary)
+- `about.md` (about page)
+- `index.html` (index page)
+- `_posts/*` (where all your blog posts live)
+- `css/main.scss` (CSS style)
+
+You can easily preview your changes by running `jekyll serve` from your directory. If you update
+`_config.yml`, you may need to restart the server to see your changes reflected.
+
+## Troubleshooting
+
+Here are various mistakes I made along the way:
+
+- `gem install jekyll` instead of `gem install github-pages` (wrong version)
+- forgot to update `baseurl` in `_config.yml`, resulting in a failure to load the CSS
+
+If you're curious, you can find the code for this blog on
+[GitHub](https://github.com/TheCodeRecipe/blog). You may especially be interested in the first
+commits.
+
+I hope this helps!
