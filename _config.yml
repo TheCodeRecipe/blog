@@ -6,7 +6,7 @@ description: > # this means to ignore newlines until "baseurl:"
   is not limited to a particular platform or language.
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://blog.thecoderecipe.com" # the base hostname & protocol for your site
-twitter_username: fwouts
+twitter_username: TheCodeRecipe
 github_username:  fwouts
 
 # Build settings
