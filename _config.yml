@@ -1,14 +1,13 @@
 # Site settings
-title: Your awesome title
-email: your-email@domain.com
+title: The Code Recipe
+email: contact@thecoderecipe.com
 description: > # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  The Code Recipe aims at providing useful articles and tools to make programming more pleasant. It
+  is not limited to a particular platform or language.
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://blog.thecoderecipe.com" # the base hostname & protocol for your site
-twitter_username: jekyllrb
-github_username:  jekyll
+twitter_username: fwouts
+github_username:  fwouts
 
 # Build settings
 markdown: kramdown
