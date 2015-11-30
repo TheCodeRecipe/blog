@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Setting up a blog with Jekyll"
+title:  "Setting up a blog with Jekyll and GitHub Pages"
 date:   2015-11-30 21:09:29
 categories: articles jekyll
 ---
