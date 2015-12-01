@@ -157,6 +157,10 @@
       // text-transform: uppercase;
       line-height: 1.3em;
       font-size: 1.8rem;
+
+      @include media-query($on-phone) {
+        font-size: 1.2rem;
+      }
     }
 
     a {
@@ -218,6 +222,13 @@
       margin-top: .8em;
     }
   }
+}
+
+// Site description in the footer
+//
+.site-description {
+  font-size: 0.8rem;
+  margin-bottom: 25px;
 }
 
 // Social
@@ -337,7 +348,7 @@
   border-top: 1px solid $gray-color-light;
   background-color: $background-color;
   margin-top: 30px;
-  padding: 30px 0;
+  padding-bottom: 30px;
 
   small {
     color: darken($gray-color-light, 25%);
