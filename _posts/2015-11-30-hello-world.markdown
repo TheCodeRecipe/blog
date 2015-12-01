@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Hello, World!"
+author: François Wouts
 date:   2015-11-30 19:41:48
 categories: articles
 ---
