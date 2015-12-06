@@ -140,7 +140,7 @@ Now, let's make our place picker a bit more complicated by displaying a real map
 First, you'll need to add a new dependency with JSPM:
 {% highlight sh %}
 
-jspm install npm:google-maps-api`
+jspm install npm:google-maps-api
 
 {% endhighlight %}
 
