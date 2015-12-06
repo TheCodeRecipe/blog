@@ -257,3 +257,5 @@ The code for this tutorial is available on
 [GitHub](https://github.com/TheCodeRecipe/sample-aurelia-places-autocomplete). Let me know your
 thoughts on [Twitter](https://twitter.com/thecoderecipe) or
 [Facebook](https://facebook.com/thecoderecipe)!
+
+Disclosure: I currently work at Google. The opinions stated here are my own, not those of my company.
